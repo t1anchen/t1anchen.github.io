@@ -1,5 +1,48 @@
-$bg-colour: #003153;
+:root {
+  color-scheme: dark;
+  // --bg-colour: #ccc;
+  // --large-grid-colour: #aaa;
+  // --small-grid-colour: #aaa;
+  --bg-colour: #123;
+  --large-grid-colour: rgba(255, 255, 255, 0.1);
+  --small-grid-colour: rgba(255, 255, 255, 0.1);
+}
+
+$bg-colour: var(--bg-colour);
+
+$large-grid-size: 125px;
+$large-grid-width: 1px;
+$large-grid-colour: var(--large-grid-colour);
+$small-grid-size: 25px;
+$small-grid-width: 1px;
+$small-grid-colour: var(--small-grid-colour);
+$grid-offset: $large-grid-size/2;
 
 body {
   background: $bg-colour;
+  background-image:
+    linear-gradient(
+      $large-grid-colour $large-grid-width,
+      transparent $large-grid-width
+    ),
+    linear-gradient(
+      90deg,
+      $large-grid-colour $large-grid-width,
+      transparent $large-grid-width
+    ),
+    linear-gradient(
+      $small-grid-colour $small-grid-width,
+      transparent $small-grid-width
+    ),
+    linear-gradient(
+      90deg,
+      $small-grid-colour $small-grid-width,
+      transparent $small-grid-width
+    );
+  background-size:
+    $large-grid-size $large-grid-size,
+    $large-grid-size $large-grid-size,
+    $small-grid-size $small-grid-size,
+    $small-grid-size $small-grid-size;
+  background-position: $grid-offset $grid-offset, $grid-offset $grid-offset;
 }
